@@ -30,23 +30,23 @@ function loadDataIntoTable(data) {
 
     let tableBody = document.getElementById('crypto-table-body');
 
-    let html = "";
+    let thead = "";
 
     for(let i = 0; i < coinName.length; i++) {
-        html += "<tr>";
-        html += "<td>" + coinName[i] + " (" + coinSymbol[i] + ")" + "</td>";
-        html += "<td>" + coinRank[i] + "</td>";
-        html += "<td>$" + coinPrice[i] + "</td>";
+        thead += "<tr>";
+        thead += "<td>" + coinName[i] + " (" + coinSymbol[i] + ")" + "</td>";
+        thead += "<td>" + coinRank[i] + "</td>";
+        thead += "<td>$" + coinPrice[i] + "</td>";
         if (coin24Change[i] > 0) {
-            html += "<td class='text-success' >+" + coin24Change[i] + "</td>";
+            thead += "<td class='text-success' >+" + coin24Change[i] + "</td>";
         } else {
-            html += "<td class='text-danger'>" + coin24Change[i] + "</td>";
+            thead += "<td class='text-danger'>" + coin24Change[i] + "</td>";
         }
         
-        html += "</tr>";
+        thead += "</tr>";
     }
 
-    tableBody.innerHTML = html;
+    tableBody.innerHTML = thead;
 }
 
 function init() {
