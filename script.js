@@ -38,7 +38,7 @@ function loadDataIntoTable(data) {
         html += "<td>" + coinRank[i] + "</td>";
         html += "<td>$" + coinPrice[i] + "</td>";
         if (coin24Change[i] > 0) {
-            html += "<td class='text-sucess' >+" + coin24Change[i] + "</td>";
+            html += "<td class='text-success' >+" + coin24Change[i] + "</td>";
         } else {
             html += "<td class='text-danger'>" + coin24Change[i] + "</td>";
         }
