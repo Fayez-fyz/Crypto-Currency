@@ -1,5 +1,5 @@
 
- async function getData(url) {
+ async function getData() {
    try {
     const response = await fetch('https://api.coinlore.com/api/tickers/?start=100');
     const data = await response.json();
@@ -48,7 +48,7 @@ function loadDataIntoTable(data) {
 }
 
 function init() {
-    getData(url);
+    getData();
 }
 
 init();
