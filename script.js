@@ -1,9 +1,7 @@
-function getUrl() {
-    return 'https://api.coinlore.com/api/tickers/?start=100';
-}
+
  async function getData(url) {
    try {
-    const response = await fetch(url);
+    const response = await fetch('https://api.coinlore.com/api/tickers/?start=100');
     const data = await response.json();
      loadDataIntoTable(data); 
        
@@ -30,27 +28,26 @@ function loadDataIntoTable(data) {
 
     let tableBody = document.getElementById('crypto-table-body');
 
-    let thead = "";
+    let tbody = "";
 
     for(let i = 0; i < coinName.length; i++) {
-        thead += "<tr>";
-        thead += "<td>" + coinName[i] + " (" + coinSymbol[i] + ")" + "</td>";
-        thead += "<td>" + coinRank[i] + "</td>";
-        thead += "<td>$" + coinPrice[i] + "</td>";
+        tbody += "<tr>";
+        tbody += "<td>" + coinName[i] + " (" + coinSymbol[i] + ")" + "</td>";
+        tbody += "<td>" + coinRank[i] + "</td>";
+        tbody += "<td>$" + coinPrice[i] + "</td>";
         if (coin24Change[i] > 0) {
-            thead += "<td class='text-success' >+" + coin24Change[i] + "</td>";
+            tbody += "<td class='text-success' >+" + coin24Change[i] + "</td>";
         } else {
-            thead += "<td class='text-danger'>" + coin24Change[i] + "</td>";
+            tbody += "<td class='text-danger'>" + coin24Change[i] + "</td>";
         }
         
-        thead += "</tr>";
+       tbody += "</tr>";
     }
 
-    tableBody.innerHTML = thead;
+    tableBody.innerHTML = tbody;
 }
 
 function init() {
-    const url = getUrl();
     getData(url);
 }
 
